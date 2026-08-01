@@ -1,0 +1,310 @@
+:root{
+    --bg:#0a1c2e;
+    --panel:#102a42;
+    --panel-2:#0d233a;
+    --line:#4fa8c9;
+    --line-dim:#2c5a72;
+    --line-bright:#8fe0ff;
+    --accent:#e8a94c;
+    --accent-dim:#a67534;
+    --text:#e9f1f6;
+    --text-dim:#8fa9bb;
+    --grid:rgba(143,224,255,0.06);
+    --serif-mono:'JetBrains Mono', monospace;
+    --sans:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      linear-gradient(var(--grid) 1px, transparent 1px) 0 0/40px 40px,
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/40px 40px,
+      var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent);color:var(--bg);}
+
+  a{color:inherit;}
+
+  /* ---------- utility ---------- */
+  .wrap{max-width:1100px;margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    font-family:var(--serif-mono);
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:1px;
+    background:var(--accent);
+    display:inline-block;
+  }
+  .tag{
+    font-family:var(--serif-mono);
+    font-size:11px;
+    color:var(--line-bright);
+    border:1px solid var(--line-dim);
+    padding:3px 8px;
+    border-radius:2px;
+    letter-spacing:.05em;
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,28,46,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line-dim);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;
+    max-width:1100px;margin:0 auto;
+  }
+  .brand{
+    font-family:var(--serif-mono);
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:.05em;
+    display:flex;align-items:center;gap:8px;
+  }
+  .brand .dot{width:8px;height:8px;background:var(--accent);border-radius:50%;box-shadow:0 0 8px var(--accent);}
+  .navlinks{display:flex;gap:26px;font-family:var(--serif-mono);font-size:12px;color:var(--text-dim);}
+  .navlinks a{text-decoration:none;transition:color .2s;}
+  .navlinks a:hover{color:var(--line-bright);}
+  @media(max-width:640px){.navlinks{display:none;}}
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:64px 0 40px;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:40px;
+    align-items:center;
+  }
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr;}}
+  h1{
+    font-family:var(--serif-mono);
+    font-size:clamp(34px,5vw,54px);
+    line-height:1.05;
+    margin:16px 0 18px;
+    font-weight:800;
+    letter-spacing:-.01em;
+  }
+  h1 span{color:var(--line-bright);}
+  .hero p.lead{
+    color:var(--text-dim);
+    font-size:16px;
+    line-height:1.65;
+    max-width:46ch;
+  }
+  .meta-row{
+    display:flex;flex-wrap:wrap;gap:10px;
+    margin-top:24px;
+  }
+  .diagram-box{
+    border:1px solid var(--line-dim);
+    background:var(--panel-2);
+    border-radius:4px;
+    padding:14px;
+    position:relative;
+  }
+  .diagram-box::before{
+    content:"FIG. 01 — VISTA GENERAL";
+    position:absolute;top:-11px;left:14px;
+    background:var(--bg);
+    padding:0 8px;
+    font-family:var(--serif-mono);
+    font-size:10px;
+    letter-spacing:.12em;
+    color:var(--text-dim);
+  }
+
+  /* ---------- section shared ---------- */
+  section{padding:70px 0;border-top:1px solid var(--line-dim);}
+  .sec-head{margin-bottom:40px;}
+  h2{
+    font-family:var(--serif-mono);
+    font-size:clamp(24px,3.4vw,32px);
+    margin:14px 0 10px;
+    font-weight:700;
+  }
+  .sec-desc{color:var(--text-dim);max-width:60ch;line-height:1.6;font-size:15px;}
+
+  /* ---------- components grid ---------- */
+  .comp-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line-dim);
+    border:1px solid var(--line-dim);
+  }
+  @media(max-width:760px){.comp-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:480px){.comp-grid{grid-template-columns:1fr;}}
+  .comp-card{
+    background:var(--panel-2);
+    padding:24px 20px;
+    transition:background .2s;
+    cursor:default;
+  }
+  .comp-card:hover{background:var(--panel);}
+  .comp-num{
+    font-family:var(--serif-mono);
+    color:var(--accent);
+    font-size:12px;
+    letter-spacing:.1em;
+  }
+  .comp-icon{margin:14px 0 10px;color:var(--line-bright);}
+  .comp-card h3{
+    font-family:var(--serif-mono);
+    font-size:15px;
+    margin:0 0 8px;
+    font-weight:600;
+    letter-spacing:.02em;
+  }
+  .comp-card p{
+    color:var(--text-dim);
+    font-size:13.5px;
+    line-height:1.55;
+    margin:0;
+  }
+
+  /* ---------- cycle diagram ---------- */
+  .cycle-wrap{
+    border:1px solid var(--line-dim);
+    background:var(--panel-2);
+    border-radius:4px;
+    padding:36px 20px;
+    overflow-x:auto;
+  }
+  .buses{
+    margin-top:34px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+  }
+  @media(max-width:700px){.buses{grid-template-columns:1fr;}}
+  .bus-card{
+    border:1px solid var(--line-dim);
+    padding:16px 18px;
+    border-radius:3px;
+  }
+  .bus-card .label{
+    font-family:var(--serif-mono);
+    font-size:11px;
+    color:var(--accent);
+    letter-spacing:.1em;
+    text-transform:uppercase;
+  }
+  .bus-card p{color:var(--text-dim);font-size:13.5px;line-height:1.55;margin:8px 0 0;}
+
+  /* ---------- architecture comparison ---------- */
+  .compare{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  @media(max-width:760px){.compare{grid-template-columns:1fr;}}
+  .arch-card{
+    border:1px solid var(--line-dim);
+    border-radius:4px;
+    background:var(--panel-2);
+    padding:26px 24px;
+  }
+  .arch-card h3{
+    font-family:var(--serif-mono);
+    font-size:17px;
+    margin:6px 0 12px;
+    color:var(--line-bright);
+  }
+  .arch-card ul{margin:14px 0 0;padding-left:18px;color:var(--text-dim);font-size:13.5px;line-height:1.7;}
+  .arch-card li::marker{color:var(--accent);}
+
+  .risc-cisc{
+    margin-top:26px;
+    border-top:1px dashed var(--line-dim);
+    padding-top:26px;
+  }
+  table.spec{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+    margin-top:18px;
+  }
+  table.spec th{
+    font-family:var(--serif-mono);
+    text-align:left;
+    font-size:11px;
+    letter-spacing:.08em;
+    color:var(--accent);
+    padding:10px 12px;
+    border-bottom:1px solid var(--line-dim);
+    text-transform:uppercase;
+  }
+  table.spec td{
+    padding:12px;
+    border-bottom:1px solid var(--panel);
+    color:var(--text-dim);
+  }
+  table.spec tr td:first-child{color:var(--text);font-family:var(--serif-mono);font-size:12.5px;}
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--line-dim);
+    padding:40px 0 50px;
+  }
+  .foot-row{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
+    font-family:var(--serif-mono);
+    font-size:12px;
+    color:var(--text-dim);
+  }
+  .foot-row b{color:var(--text);}
+
+  .reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{transition:none;opacity:1;transform:none;}
+    html{scroll-behavior:auto;}
+  }
+
+
+/* 🔴 MENÚ SUPERIOR: CONVERTIR EN BOTONES — EXACTO PARA TI */
+div.navlinks a,
+.navlinks > a {
+  display: inline-block !important;
+  padding: 0.9rem 1.7rem !important;
+  font-size: 1.05rem !important;
+  font-family: var(--serif-mono), monospace !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 4px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin: 0 0.6rem !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+}
+
+/* Efecto al pasar el ratón */
+div.navlinks a:hover,
+.navlinks > a:hover {
+  border-color: var(--accent) !important;
+  background-color: rgba(232, 154, 76, 0.08) !important;
+}

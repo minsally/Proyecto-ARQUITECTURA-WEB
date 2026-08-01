@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arquitectura de Computadoras</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand"><span class="dot"></span>I.E.S.T.P ARGENTINA</div>
+    <div class="navlinks">
+      <a href="#componentes">Componentes</a>
+      <a href="#funcionamiento">Funcionamiento</a>
+      <a href="#tipos">Tipos de arquitectura</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap hero">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">Fundamentos de Interfaces Web Interactivas — I·B·40</div>
+      <h1>Arquitectura de<br><span>Computadoras</span></h1>
+      <p class="lead">Un recorrido esquemático por las piezas que forman un ordenador, cómo se comunican entre sí y los distintos modelos que definen su diseño interno.</p>
+    </div>
+
+    <div class="diagram-box">
+      <img src="WhatsApp Image 2026-08-01 at 2.39.14 PM.jpeg" alt="Componentes reales de la computadora" style="width:100%;height:100%; object-fit:contain;">
+    </div>
+  </div>
+</div>
+
+<!-- ============ COMPONENTES ============ -->
+<section id="componentes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">01 — Piezas del sistema</div>
+      <h2>Componentes de un ordenador</h2>
+      <p class="sec-desc">Cada bloque cumple una función distinta; juntos forman el sistema que procesa, guarda y comunica información.</p>
+    </div>
+
+    <div class="comp-grid reveal">
+      <div class="comp-card">
+        <div class="comp-num">C.01</div>
+        <h3>CPU — Unidad Central de Proceso</h3>
+        <p>El "cerebro" del equipo. Contiene la Unidad de Control (ALU), que ejecuta operaciones aritméticas y lógicas, y los registros, que guardan datos temporales durante el proceso.</p>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">C.02</div>
+        <h3>Memoria RAM</h3>
+        <p>Memoria de acceso aleatorio y volátil: guarda temporalmente los datos y programas en uso. Se borra al apagar el equipo.</p>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">C.03</div>
+        <h3>Almacenamiento</h3>
+        <p>Discos duros (HDD) o unidades de estado sólido (SSD) que conservan la información de forma permanente, incluso sin energía.</p>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">C.04</div>
+        <h3>Placa base (Motherboard)</h3>
+        <p>Conecta físicamente y permite la comunicación entre todos los componentes: CPU, memoria, almacenamiento y periféricos.</p>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">C.05</div>
+        <h3>Entrada / Salida</h3>
+        <p>Dispositivos que permiten interactuar con el equipo: teclado y mouse (entrada), monitor e impresora (salida).</p>
+      </div>
+      <div class="comp-card">
+        <div class="comp-num">C.06</div>
+        <h3>Fuente de poder</h3>
+        <p>Convierte la corriente eléctrica de la toma de pared en la energía que necesitan los componentes internos para funcionar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUNCIONAMIENTO ============ -->
+<section id="funcionamiento">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">02 — Ciclo de instrucción</div>
+      <h2>Funcionamiento básico</h2>
+      <p class="sec-desc">Toda instrucción que ejecuta un ordenador recorre el mismo ciclo, una y otra vez, millones de veces por segundo.</p>
+    </div>
+
+    <div class="cycle-wrap reveal">
+      <svg viewBox="0 0 900 140" xmlnsauto;">
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="var(--line-bright)"/>
+          </marker>
+        </defs>
+        <!-- 4 stage boxes -->
+        <g font-family="JetBrains Mono" font-size="11">
+          <rect x="20" y="40" width="170" height="60" fill="var(--panel)" stroke="var(--line-bright)" stroke-width="1.2"/>
+          <text x="105" y="65" text-anchor="middle" fill="var(--line-bright)">01 · BÚSQUEDA</text>
+          <text x="105" y="82" text-anchor="middle" fill="var(--text-dim)" font-size="9">(Fetch)</text>
+
+          <rect x="255" y="40" width="170" height="60" fill="var(--panel)" stroke="var(--line-bright)" stroke-width="1.2"/>
+          <text x="340" y="65" text-anchor="middle" fill="var(--line-bright)">02 · DECODIFICACIÓN</text>
+          <text x="340" y="82" text-anchor="middle" fill="var(--text-dim)" font-size="9">(Decode)</text>
+
+          <rect x="490" y="40" width="170" height="60" fill="var(--panel)" stroke="var(--line-bright)" stroke-width="1.2"/>
+          <text x="575" y="65" text-anchor="middle" fill="var(--line-bright)">03 · EJECUCIÓN</text>
+          <text x="575" y="82" text-anchor="middle" fill="var(--text-dim)" font-size="9">(Execute)</text>
+
+          <rect x="725" y="40" width="155" height="60" fill="var(--panel)" stroke="var(--accent)" stroke-width="1.2"/>
+          <text x="802" y="65" text-anchor="middle" fill="var(--accent)">04 · ALMACENA</text>
+          <text x="802" y="82" text-anchor="middle" fill="var(--text-dim)" font-size="9">(Store)</text>
+        </g>
+        <line x1="190" y1="70" x2="250" y2="70" stroke="var(--line-bright)" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="425" y1="70" x2="485" y2="70" stroke="var(--line-bright)" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="660" y1="70" x2="720" y2="70" stroke="var(--line-bright)" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <!-- loop back -->
+        <path d="M802,100 C802,130 105,130 105,100" fill="none" stroke="var(--accent)" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+        <text x="450" y="128" text-anchor="middle" fill="var(--accent)" font-family="JetBrains Mono" font-size="9">el ciclo se repite con la siguiente instrucción</text>
+      </svg>
+    </div>
+
+    <div class="buses reveal">
+      <div class="bus-card">
+        <div class="label">Bus de datos</div>
+        <p>Transporta la información que se procesa: los valores con los que trabaja la CPU en cada instrucción.</p>
+      </div>
+      <div class="bus-card">
+        <div class="label">Bus de direcciones</div>
+        <p>Indica en qué posición exacta de la memoria se debe leer o escribir un dato.</p>
+      </div>
+      <div class="bus-card">
+        <div class="label">Bus de control</div>
+        <p>Envía las señales que coordinan cuándo y cómo ocurre cada operación entre los componentes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIPOS ============ -->
+<section id="tipos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">03 — Modelos de diseño</div>
+      <h2>Tipos de arquitectura</h2>
+      <p class="sec-desc">La forma en la que la memoria y las instrucciones se organizan da lugar a distintos modelos de arquitectura.</p>
+    </div>
+
+    <div class="compare reveal">
+      <div class="arch-card">
+        <span class="tag">MODELO CLÁSICO</span>
+        <h3>Arquitectura Von Neumann</h3>
+        <ul>
+          <li>Una sola memoria almacena datos e instrucciones juntos.</li>
+          <li>Usa un único bus para acceder a ambos, lo que puede generar cuellos de botella.</li>
+          <li>Es el modelo base de la mayoría de las computadoras de uso general.</li>
+        </ul>
+      </div>
+      <div class="arch-card">
+        <span class="tag">MODELO ALTERNO</span>
+        <h3>Arquitectura Harvard</h3>
+        <ul>
+          <li>Separa la memoria de datos de la memoria de instrucciones.</li>
+          <li>Permite acceder a ambas al mismo tiempo, ganando velocidad.</li>
+          <li>Se usa mucho en microcontroladores y sistemas embebidos.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="risc-cisc reveal">
+      <div class="eyebrow">Además</div>
+      <h2 style="font-size:20px;">Conjuntos de instrucciones: CISC vs. RISC</h2>
+      <table class="spec">
+        <thead>
+          <tr><th>Característica</th><th>CISC</th><th>RISC</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Significado</td><td>Complex Instruction Set Computer</td><td>Reduced Instruction Set Computer</td></tr>
+          <tr><td>Instrucciones</td><td>Muchas y complejas, hacen más por ciclo</td><td>Pocas y simples, más rápidas de ejecutar</td></tr>
+          <tr><td>Ejemplo típico</td><td>Procesadores x86 (Intel, AMD)</td><td>Procesadores ARM (celulares, tablets)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div>
+  <div class="wrap foot-row">
+    <div><b>Fundamentos de Interfaces Web Interactivas</b> / I - B - 40</div>
+    <div>Tema 01 — Arquitectura de Computadoras</div>
+    <div>Integrantes: <b>Olga Ledesma · Monica Sally Murayari</b></div>
+    <div>Docente: <b>Ing. Juan Luis Galindo Rojas</b></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
